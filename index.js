@@ -13,6 +13,8 @@ const connectDB = async () => {
 
 connectDB();
 
+app.use("/api/post", require("./routes/post"));
+
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Backend server running on http://localhost:${PORT}`);
