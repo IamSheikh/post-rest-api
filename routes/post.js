@@ -35,4 +35,10 @@ router.put("/edit/:id", async (req, res) => {
   res.json(editPost);
 });
 
+router.delete("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  const deletePost = await post.findByIdAndDelete(id);
+  res.json(deletePost);
+});
+
 module.exports = router;
