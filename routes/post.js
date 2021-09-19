@@ -24,4 +24,15 @@ router.get("/all", async (req, res) => {
   res.json(allPost);
 });
 
+router.put("/edit/:id", async (req, res) => {
+  const { id } = req.params;
+  const { title, description } = req.body;
+  const updatedPostData = {
+    title,
+    description,
+  };
+  const editPost = await post.findByIdAndUpdate(id, updatedPostData);
+  res.json(editPost);
+});
+
 module.exports = router;
