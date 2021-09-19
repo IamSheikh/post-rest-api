@@ -13,4 +13,10 @@ router.post("/new", async (req, res) => {
   res.json(posts);
 });
 
+router.get("/search/:id", async (req, res) => {
+  const { id } = req.params;
+  const findedPost = await post.findById({ _id: id });
+  res.json(findedPost);
+});
+
 module.exports = router;
