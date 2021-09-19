@@ -19,4 +19,9 @@ router.get("/search/:id", async (req, res) => {
   res.json(findedPost);
 });
 
+router.get("/all", async (req, res) => {
+  const allPost = await post.find();
+  res.json(allPost);
+});
+
 module.exports = router;
